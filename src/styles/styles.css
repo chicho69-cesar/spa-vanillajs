@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -9,9 +15,38 @@ body {
 }
 
 .header-main {
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #026C86;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header-logo {
+    width: 200px;
+    height: auto;
+}
+
+.header-logo h1 a img {
+    width: 100%;
+    filter: grayscale(100%) opacity(0.8);
+    transition: 450ms all;
+}
+
+.header-logo h1 a img:hover {
+    filter: grayscale(0%) opacity(1);
+}
+
+.header a {
+    text-decoration: none;
+    color: #15302C;
+    font-weight: bold;
+    outline: none;
+}
+
+.header a:hover{
+    color: #12b0c9;
+    text-decoration: underline;
 }
 
 .header a {
@@ -77,6 +112,25 @@ body {
     display: block;
     animation-duration: 2s;
     animation-name: fade;
+    transition: all 0.45s ease;
+    transform-origin: center left;
+}
+
+.characters-item:hover {
+    box-shadow: 10px 16px 40px rgba(39,44,49,.06), 2px 4px 9px rgba(39,44,49,.03);
+}
+
+.characters-item:hover ~ .characters-item {
+    transform: translate3d(0px, 2px, 0)
+}
+
+.characters:hover .characters-item {
+    opacity: 0.5;
+}
+
+.characters:hover .characters-item:hover {
+    transform: scale(1.05);
+    opacity: 1;
 }
 
 .characters-item img {
@@ -119,4 +173,31 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+@media(max-width: 600px){
+    .header-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .characters {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .character-item:hover ~ .character-item{
+        transform: translateY(2px);
+    }
+    
+    .characters:hover .character-item:hover{
+        transform: scale(1.01);
+        opacity: 1;
+    }
+
+    .characters-inner {
+        display: flex;
+        flex-direction: column;
+    }
 }
