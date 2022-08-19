@@ -29,4 +29,4 @@ Para hacer el buil de produccion ejecuta el comando:
     npm run dev
 
 
-### Gracias :)
+### Gracias :) 😎
